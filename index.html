@@ -264,6 +264,15 @@
       display: block;
     }
 
+    .about-shape svg {
+      width: 100%;
+      height: 100%;
+      padding: 1rem;
+    }
+
+    .about-illustration { display: none; }
+    .about-photo { display: block; }
+
     .about-chip {
       position: absolute;
       top: 32px;
@@ -492,6 +501,8 @@
       .hero-card { width: 260px; height: 320px; }
       #about { grid-template-columns: 1fr; }
       .about-visual { display: block; max-width: 320px; margin: 0 auto 2rem; }
+      .about-photo { display: none !important; }
+      .about-illustration { display: block !important; }
       .services-grid { grid-template-columns: 1fr; }
       .steps { grid-template-columns: 1fr 1fr; }
       #contact { grid-template-columns: 1fr; }
@@ -550,7 +561,50 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="about-visual reveal">
-    <div class="about-shape"><img src="netta.jpeg" alt="נטע שינפלד" /></div>
+    <div class="about-shape about-photo"><img src="netta.jpeg" alt="נטע שינפלד" /></div>
+    <div class="about-shape about-illustration">
+      <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background circle -->
+        <circle cx="200" cy="220" r="160" fill="#EBF2F8"/>
+        <!-- Chair -->
+        <rect x="120" y="340" width="160" height="12" rx="6" fill="#3D5A80" opacity=".2"/>
+        <rect x="130" y="280" width="140" height="65" rx="16" fill="#98C1D9" opacity=".4"/>
+        <rect x="115" y="260" width="20" height="95" rx="10" fill="#98C1D9" opacity=".35"/>
+        <rect x="265" y="260" width="20" height="95" rx="10" fill="#98C1D9" opacity=".35"/>
+        <!-- Body -->
+        <path d="M170 310 Q200 340 230 310 L240 380 Q200 395 160 380 Z" fill="#3D5A80"/>
+        <!-- Neck -->
+        <rect x="188" y="230" width="24" height="30" rx="12" fill="#E8C4A0"/>
+        <!-- Head -->
+        <ellipse cx="200" cy="200" rx="52" ry="58" fill="#E8C4A0"/>
+        <!-- Hair -->
+        <path d="M148 195 Q148 140 200 135 Q252 140 252 195 Q250 170 230 165 Q200 155 170 165 Q150 170 148 195Z" fill="#2B3A52"/>
+        <path d="M148 195 Q145 230 150 250 Q148 220 152 200Z" fill="#2B3A52"/>
+        <path d="M252 195 Q255 230 250 250 Q252 220 248 200Z" fill="#2B3A52"/>
+        <!-- Eyes -->
+        <ellipse cx="183" cy="200" rx="5" ry="5.5" fill="#2B3A52"/>
+        <ellipse cx="217" cy="200" rx="5" ry="5.5" fill="#2B3A52"/>
+        <!-- Smile -->
+        <path d="M185 218 Q200 230 215 218" stroke="#D4A5A5" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <!-- Hands holding -->
+        <ellipse cx="145" cy="340" rx="14" ry="10" fill="#E8C4A0" transform="rotate(-15 145 340)"/>
+        <ellipse cx="255" cy="340" rx="14" ry="10" fill="#E8C4A0" transform="rotate(15 255 340)"/>
+        <!-- Heart -->
+        <path d="M192 290 Q200 280 208 290 Q215 300 200 315 Q185 300 192 290Z" fill="#D4A5A5" opacity=".7"/>
+        <!-- Plant left -->
+        <path d="M80 380 Q75 340 90 320" stroke="#8BA888" stroke-width="2.5" fill="none"/>
+        <ellipse cx="88" cy="315" rx="12" ry="8" fill="#8BA888" opacity=".5" transform="rotate(-20 88 315)"/>
+        <ellipse cx="78" cy="335" rx="10" ry="7" fill="#8BA888" opacity=".4" transform="rotate(15 78 335)"/>
+        <rect x="72" y="380" width="20" height="28" rx="4" fill="#D4A5A5" opacity=".4"/>
+        <!-- Floating dots -->
+        <circle cx="310" cy="160" r="6" fill="#D4A5A5" opacity=".3"/>
+        <circle cx="330" cy="190" r="4" fill="#98C1D9" opacity=".4"/>
+        <circle cx="90" cy="170" r="5" fill="#98C1D9" opacity=".3"/>
+        <circle cx="70" cy="200" r="3" fill="#D4A5A5" opacity=".4"/>
+        <!-- Sparkles -->
+        <path d="M300 130 L303 140 L310 137 L303 143 L306 153 L300 146 L294 153 L297 143 L290 137 L297 140Z" fill="#D4A5A5" opacity=".35"/>
+      </svg>
+    </div>
     <div class="about-chip">
       <span class="big">CBT</span>
       <span class="sm">מוסמכת</span>
