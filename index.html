@@ -171,17 +171,12 @@
       align-items: flex-end;
     }
 
-    .hero-initials {
+    .hero-card-bg img {
       width: 100%;
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 7rem;
-      font-weight: 700;
-      color: rgba(255,255,255,.12);
-      letter-spacing: -4px;
-      user-select: none;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
 
     .floating-badge {
@@ -258,12 +253,15 @@
       aspect-ratio: 4/5;
       border-radius: 24px 4px 24px 4px;
       background: linear-gradient(135deg, var(--sky) 0%, var(--blue) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 6rem;
-      color: rgba(255,255,255,.25);
-      font-weight: 700;
+      overflow: hidden;
+    }
+
+    .about-shape img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
 
     .about-chip {
@@ -534,7 +532,7 @@
   <div class="hero-visual">
     <div class="hero-card">
       <div class="hero-card-bg">
-        <div class="hero-initials">נ&nbsp;ש</div>
+        <img src="netta.jpeg" alt="נטע שינפלד" />
       </div>
       <div class="floating-badge">
         <span class="icon">🧠</span>
@@ -551,7 +549,7 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="about-visual reveal">
-    <div class="about-shape">נ"ש</div>
+    <div class="about-shape"><img src="netta.jpeg" alt="נטע שינפלד" /></div>
     <div class="about-chip">
       <span class="big">CBT</span>
       <span class="sm">מוסמכת</span>
