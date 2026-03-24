@@ -256,22 +256,11 @@
       overflow: hidden;
     }
 
-    .about-shape img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 80%;
-      display: block;
-    }
-
     .about-shape svg {
       width: 100%;
       height: 100%;
-      padding: 1rem;
     }
 
-    .about-illustration { display: none; }
-    .about-photo { display: block; }
 
     .about-chip {
       position: absolute;
@@ -501,8 +490,6 @@
       .hero-card { width: 260px; height: 320px; }
       #about { grid-template-columns: 1fr; }
       .about-visual { display: block; max-width: 320px; margin: 0 auto 2rem; }
-      .about-photo { display: none !important; }
-      .about-illustration { display: block !important; }
       .services-grid { grid-template-columns: 1fr; }
       .steps { grid-template-columns: 1fr 1fr; }
       #contact { grid-template-columns: 1fr; }
@@ -561,48 +548,171 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="about-visual reveal">
-    <div class="about-shape about-photo"><img src="netta.jpeg" alt="נטע שינפלד" /></div>
-    <div class="about-shape about-illustration">
+    <div class="about-shape">
       <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Background circle -->
-        <circle cx="200" cy="220" r="160" fill="#EBF2F8"/>
-        <!-- Chair -->
-        <rect x="120" y="340" width="160" height="12" rx="6" fill="#3D5A80" opacity=".2"/>
-        <rect x="130" y="280" width="140" height="65" rx="16" fill="#98C1D9" opacity=".4"/>
-        <rect x="115" y="260" width="20" height="95" rx="10" fill="#98C1D9" opacity=".35"/>
-        <rect x="265" y="260" width="20" height="95" rx="10" fill="#98C1D9" opacity=".35"/>
-        <!-- Body -->
-        <path d="M170 310 Q200 340 230 310 L240 380 Q200 395 160 380 Z" fill="#3D5A80"/>
-        <!-- Neck -->
-        <rect x="188" y="230" width="24" height="30" rx="12" fill="#E8C4A0"/>
-        <!-- Head -->
-        <ellipse cx="200" cy="200" rx="52" ry="58" fill="#E8C4A0"/>
-        <!-- Hair -->
-        <path d="M148 195 Q148 140 200 135 Q252 140 252 195 Q250 170 230 165 Q200 155 170 165 Q150 170 148 195Z" fill="#2B3A52"/>
-        <path d="M148 195 Q145 230 150 250 Q148 220 152 200Z" fill="#2B3A52"/>
-        <path d="M252 195 Q255 230 250 250 Q252 220 248 200Z" fill="#2B3A52"/>
-        <!-- Eyes -->
-        <ellipse cx="183" cy="200" rx="5" ry="5.5" fill="#2B3A52"/>
-        <ellipse cx="217" cy="200" rx="5" ry="5.5" fill="#2B3A52"/>
-        <!-- Smile -->
-        <path d="M185 218 Q200 230 215 218" stroke="#D4A5A5" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <!-- Hands holding -->
-        <ellipse cx="145" cy="340" rx="14" ry="10" fill="#E8C4A0" transform="rotate(-15 145 340)"/>
-        <ellipse cx="255" cy="340" rx="14" ry="10" fill="#E8C4A0" transform="rotate(15 255 340)"/>
-        <!-- Heart -->
-        <path d="M192 290 Q200 280 208 290 Q215 300 200 315 Q185 300 192 290Z" fill="#D4A5A5" opacity=".7"/>
-        <!-- Plant left -->
-        <path d="M80 380 Q75 340 90 320" stroke="#8BA888" stroke-width="2.5" fill="none"/>
-        <ellipse cx="88" cy="315" rx="12" ry="8" fill="#8BA888" opacity=".5" transform="rotate(-20 88 315)"/>
-        <ellipse cx="78" cy="335" rx="10" ry="7" fill="#8BA888" opacity=".4" transform="rotate(15 78 335)"/>
-        <rect x="72" y="380" width="20" height="28" rx="4" fill="#D4A5A5" opacity=".4"/>
-        <!-- Floating dots -->
-        <circle cx="310" cy="160" r="6" fill="#D4A5A5" opacity=".3"/>
-        <circle cx="330" cy="190" r="4" fill="#98C1D9" opacity=".4"/>
-        <circle cx="90" cy="170" r="5" fill="#98C1D9" opacity=".3"/>
-        <circle cx="70" cy="200" r="3" fill="#D4A5A5" opacity=".4"/>
-        <!-- Sparkles -->
-        <path d="M300 130 L303 140 L310 137 L303 143 L306 153 L300 146 L294 153 L297 143 L290 137 L297 140Z" fill="#D4A5A5" opacity=".35"/>
+        <!-- Room background -->
+        <rect width="400" height="500" rx="0" fill="#F8F5F1"/>
+        <!-- Back wall -->
+        <rect x="0" y="0" width="400" height="360" fill="#EDE8E0"/>
+        <!-- Floor -->
+        <rect x="0" y="360" width="400" height="140" fill="#D9CFC3"/>
+        <!-- Rug -->
+        <ellipse cx="200" cy="420" rx="150" ry="45" fill="#D4A5A5" opacity=".25"/>
+        <ellipse cx="200" cy="420" rx="120" ry="35" fill="#D4A5A5" opacity=".15"/>
+
+        <!-- Window -->
+        <rect x="155" y="30" width="90" height="110" rx="6" fill="#98C1D9" opacity=".35"/>
+        <rect x="155" y="30" width="90" height="110" rx="6" stroke="#C4B8A8" stroke-width="3" fill="none"/>
+        <line x1="200" y1="30" x2="200" y2="140" stroke="#C4B8A8" stroke-width="2"/>
+        <line x1="155" y1="85" x2="245" y2="85" stroke="#C4B8A8" stroke-width="2"/>
+        <!-- Curtains -->
+        <path d="M150 28 Q140 80 145 142 L150 142 Q148 80 155 28Z" fill="#98C1D9" opacity=".2"/>
+        <path d="M250 28 Q260 80 255 142 L250 142 Q252 80 245 28Z" fill="#98C1D9" opacity=".2"/>
+
+        <!-- Bookshelf on wall -->
+        <rect x="20" y="50" width="80" height="100" rx="3" fill="#8B7355" opacity=".35"/>
+        <rect x="25" y="55" width="70" height="4" fill="#7A6548" opacity=".5"/>
+        <rect x="25" y="95" width="70" height="4" fill="#7A6548" opacity=".5"/>
+        <!-- Books -->
+        <rect x="30" y="60" width="8" height="32" rx="1" fill="#3D5A80" opacity=".6"/>
+        <rect x="40" y="65" width="7" height="27" rx="1" fill="#D4A5A5" opacity=".6"/>
+        <rect x="49" y="62" width="9" height="30" rx="1" fill="#98C1D9" opacity=".5"/>
+        <rect x="60" y="67" width="6" height="25" rx="1" fill="#8BA888" opacity=".5"/>
+        <rect x="68" y="60" width="8" height="32" rx="1" fill="#2B3A52" opacity=".4"/>
+        <rect x="30" y="100" width="10" height="28" rx="1" fill="#98C1D9" opacity=".5"/>
+        <rect x="42" y="103" width="7" height="25" rx="1" fill="#D4A5A5" opacity=".5"/>
+        <rect x="51" y="100" width="9" height="28" rx="1" fill="#3D5A80" opacity=".5"/>
+        <rect x="62" y="105" width="8" height="23" rx="1" fill="#8BA888" opacity=".45"/>
+
+        <!-- Certificate frame on wall -->
+        <rect x="310" y="60" width="60" height="45" rx="2" fill="#FFFFFF" opacity=".7"/>
+        <rect x="310" y="60" width="60" height="45" rx="2" stroke="#C4B8A8" stroke-width="2" fill="none"/>
+        <line x1="325" y1="74" x2="355" y2="74" stroke="#98C1D9" stroke-width="1.5" opacity=".5"/>
+        <line x1="320" y1="82" x2="360" y2="82" stroke="#C4B8A8" stroke-width="1" opacity=".4"/>
+        <line x1="322" y1="88" x2="358" y2="88" stroke="#C4B8A8" stroke-width="1" opacity=".4"/>
+        <line x1="325" y1="94" x2="355" y2="94" stroke="#C4B8A8" stroke-width="1" opacity=".3"/>
+
+        <!-- Floor lamp -->
+        <rect x="338" y="175" width="4" height="185" rx="2" fill="#C4B8A8"/>
+        <ellipse cx="340" cy="170" rx="22" ry="16" fill="#F5E6D0"/>
+        <ellipse cx="340" cy="170" rx="22" ry="16" stroke="#D9CFC3" stroke-width="1.5" fill="none"/>
+        <circle cx="340" cy="170" r="4" fill="#FFE4B5" opacity=".6"/>
+
+        <!-- Sofa (patient side - left) -->
+        <rect x="30" y="285" width="140" height="75" rx="18" fill="#98C1D9" opacity=".55"/>
+        <!-- Sofa back -->
+        <rect x="25" y="250" width="150" height="50" rx="16" fill="#98C1D9" opacity=".45"/>
+        <!-- Sofa armrests -->
+        <rect x="20" y="270" width="25" height="70" rx="12" fill="#98C1D9" opacity=".5"/>
+        <rect x="155" y="270" width="25" height="70" rx="12" fill="#98C1D9" opacity=".5"/>
+        <!-- Sofa cushions -->
+        <ellipse cx="70" cy="270" rx="25" ry="14" fill="#98C1D9" opacity=".3"/>
+        <ellipse cx="130" cy="270" rx="25" ry="14" fill="#98C1D9" opacity=".3"/>
+        <!-- Sofa legs -->
+        <rect x="45" y="358" width="5" height="14" rx="2" fill="#7A6548" opacity=".5"/>
+        <rect x="150" y="358" width="5" height="14" rx="2" fill="#7A6548" opacity=".5"/>
+
+        <!-- Coffee table -->
+        <rect x="170" y="340" width="60" height="8" rx="4" fill="#8B7355" opacity=".5"/>
+        <rect x="178" y="348" width="4" height="24" rx="2" fill="#7A6548" opacity=".45"/>
+        <rect x="218" y="348" width="4" height="24" rx="2" fill="#7A6548" opacity=".45"/>
+        <!-- Mug on table -->
+        <rect x="185" y="330" width="14" height="12" rx="3" fill="#FFFFFF" opacity=".7"/>
+        <path d="M199 333 Q205 336 199 340" stroke="#C4B8A8" stroke-width="1.5" fill="none"/>
+        <!-- Steam -->
+        <path d="M189 326 Q191 320 189 314" stroke="#C4B8A8" stroke-width="1" opacity=".3" fill="none"/>
+        <path d="M195 325 Q197 318 195 312" stroke="#C4B8A8" stroke-width="1" opacity=".25" fill="none"/>
+
+        <!-- Small plant on table -->
+        <rect x="208" y="328" width="10" height="14" rx="3" fill="#D4A5A5" opacity=".45"/>
+        <path d="M213 328 Q210 318 206 312" stroke="#8BA888" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M213 326 Q216 316 220 311" stroke="#8BA888" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M213 330 Q208 322 204 320" stroke="#8BA888" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".7"/>
+        <ellipse cx="206" cy="311" rx="5" ry="3.5" fill="#8BA888" opacity=".5" transform="rotate(-20 206 311)"/>
+        <ellipse cx="220" cy="310" rx="5" ry="3.5" fill="#8BA888" opacity=".5" transform="rotate(15 220 310)"/>
+
+        <!-- Therapist chair (right) -->
+        <rect x="250" y="290" width="100" height="70" rx="16" fill="#3D5A80" opacity=".35"/>
+        <!-- Chair back -->
+        <rect x="255" y="250" width="95" height="55" rx="14" fill="#3D5A80" opacity=".3"/>
+        <!-- Chair armrests -->
+        <rect x="245" y="275" width="22" height="65" rx="10" fill="#3D5A80" opacity=".35"/>
+        <rect x="340" y="275" width="22" height="65" rx="10" fill="#3D5A80" opacity=".35"/>
+        <!-- Chair legs -->
+        <rect x="265" y="358" width="5" height="14" rx="2" fill="#7A6548" opacity=".5"/>
+        <rect x="335" y="358" width="5" height="14" rx="2" fill="#7A6548" opacity=".5"/>
+
+        <!-- PATIENT (sitting on sofa, left) -->
+        <!-- Patient body -->
+        <path d="M85 305 Q75 290 80 270 L120 270 Q125 290 115 305 Z" fill="#98C1D9" opacity=".7"/>
+        <!-- Patient neck -->
+        <rect x="93" y="228" width="14" height="18" rx="7" fill="#E8C4A0"/>
+        <!-- Patient head -->
+        <ellipse cx="100" cy="210" rx="28" ry="32" fill="#E8C4A0"/>
+        <!-- Patient hair -->
+        <path d="M72 205 Q72 175 100 168 Q128 175 128 205 Q125 188 110 183 Q100 178 90 183 Q75 188 72 205Z" fill="#7A6548" opacity=".7"/>
+        <!-- Patient eyes -->
+        <ellipse cx="90" cy="210" rx="3" ry="3.5" fill="#2B3A52" opacity=".7"/>
+        <ellipse cx="110" cy="210" rx="3" ry="3.5" fill="#2B3A52" opacity=".7"/>
+        <!-- Patient smile -->
+        <path d="M92 222 Q100 228 108 222" stroke="#D4A5A5" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- Patient hands on lap -->
+        <ellipse cx="88" cy="300" rx="10" ry="7" fill="#E8C4A0" transform="rotate(-10 88 300)"/>
+        <ellipse cx="112" cy="300" rx="10" ry="7" fill="#E8C4A0" transform="rotate(10 112 300)"/>
+
+        <!-- THERAPIST (sitting in chair, right) -->
+        <!-- Therapist body -->
+        <path d="M285 305 Q275 285 280 265 L320 265 Q325 285 315 305 Z" fill="#2B3A52" opacity=".6"/>
+        <!-- Therapist neck -->
+        <rect x="293" y="223" width="14" height="18" rx="7" fill="#E8C4A0"/>
+        <!-- Therapist head -->
+        <ellipse cx="300" cy="205" rx="28" ry="32" fill="#E8C4A0"/>
+        <!-- Therapist hair (dark, long) -->
+        <path d="M272 200 Q272 168 300 160 Q328 168 328 200 Q325 180 312 175 Q300 168 288 175 Q275 180 272 200Z" fill="#2B3A52" opacity=".8"/>
+        <path d="M272 200 Q268 225 270 245" stroke="#2B3A52" stroke-width="8" fill="none" opacity=".6" stroke-linecap="round"/>
+        <path d="M328 200 Q332 225 330 245" stroke="#2B3A52" stroke-width="8" fill="none" opacity=".6" stroke-linecap="round"/>
+        <!-- Therapist eyes -->
+        <ellipse cx="290" cy="205" rx="3" ry="3.5" fill="#2B3A52" opacity=".7"/>
+        <ellipse cx="310" cy="205" rx="3" ry="3.5" fill="#2B3A52" opacity=".7"/>
+        <!-- Therapist warm smile -->
+        <path d="M290 218 Q300 226 310 218" stroke="#D4A5A5" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <!-- Therapist glasses -->
+        <circle cx="290" cy="204" r="8" stroke="#C4B8A8" stroke-width="1.2" fill="none" opacity=".45"/>
+        <circle cx="310" cy="204" r="8" stroke="#C4B8A8" stroke-width="1.2" fill="none" opacity=".45"/>
+        <line x1="298" y1="204" x2="302" y2="204" stroke="#C4B8A8" stroke-width="1" opacity=".4"/>
+        <!-- Therapist notepad -->
+        <rect x="268" y="285" width="24" height="30" rx="3" fill="#FFFFFF" opacity=".7" transform="rotate(-8 268 285)"/>
+        <line x1="272" y1="292" x2="288" y2="290" stroke="#98C1D9" stroke-width="1" opacity=".4"/>
+        <line x1="273" y1="298" x2="289" y2="296" stroke="#98C1D9" stroke-width="1" opacity=".4"/>
+        <line x1="274" y1="304" x2="286" y2="302" stroke="#98C1D9" stroke-width="1" opacity=".35"/>
+        <!-- Therapist hand with pen -->
+        <ellipse cx="275" cy="295" rx="9" ry="6" fill="#E8C4A0" transform="rotate(-15 275 295)"/>
+        <!-- Pen -->
+        <line x1="270" y1="288" x2="262" y2="275" stroke="#3D5A80" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Other hand -->
+        <ellipse cx="325" cy="298" rx="9" ry="6" fill="#E8C4A0" transform="rotate(10 325 298)"/>
+
+        <!-- Large plant (right corner) -->
+        <rect x="365" y="385" width="22" height="30" rx="5" fill="#8B7355" opacity=".4"/>
+        <path d="M376 385 Q370 355 358 340" stroke="#8BA888" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M376 382 Q382 350 394 335" stroke="#8BA888" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M376 390 Q368 368 355 358" stroke="#8BA888" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".7"/>
+        <path d="M376 388 Q384 365 396 355" stroke="#8BA888" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".7"/>
+        <ellipse cx="356" cy="338" rx="12" ry="8" fill="#8BA888" opacity=".45" transform="rotate(-30 356 338)"/>
+        <ellipse cx="395" cy="333" rx="12" ry="8" fill="#8BA888" opacity=".45" transform="rotate(25 395 333)"/>
+        <ellipse cx="353" cy="356" rx="10" ry="7" fill="#8BA888" opacity=".35" transform="rotate(-15 353 356)"/>
+        <ellipse cx="398" cy="353" rx="10" ry="7" fill="#8BA888" opacity=".35" transform="rotate(20 398 353)"/>
+
+        <!-- Small plant (left corner) -->
+        <rect x="12" y="395" width="18" height="25" rx="4" fill="#D4A5A5" opacity=".35"/>
+        <path d="M21 395 Q16 375 10 365" stroke="#8BA888" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M21 393 Q26 373 32 363" stroke="#8BA888" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <ellipse cx="9" cy="363" rx="8" ry="5" fill="#8BA888" opacity=".4" transform="rotate(-25 9 363)"/>
+        <ellipse cx="33" cy="361" rx="8" ry="5" fill="#8BA888" opacity=".4" transform="rotate(20 33 361)"/>
+
+        <!-- Warm light glow from lamp -->
+        <circle cx="340" cy="170" r="50" fill="#FFE4B5" opacity=".06"/>
+        <circle cx="340" cy="170" r="80" fill="#FFE4B5" opacity=".03"/>
       </svg>
     </div>
     <div class="about-chip">
