@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>נטע שינפלד | פסיכולוגית קלינית – טיפול CBT</title>
+  <meta name="description" content="נטע שינפלד – מטפלת CBT מוסמכת בהפרעות חרדה ופוסט טראומה. קבעי פגישת היכרות עוד היום." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #2B3A52;
+      --blue:   #3D5A80;
+      --sky:    #98C1D9;
+      --blush:  #D4A5A5;
+      --cream:  #F8F5F1;
+      --white:  #FFFFFF;
+      --text:   #2B3A52;
+      --muted:  #6B7A8D;
+      --border: #E4DDD5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 5%;
+      background: rgba(248,245,241,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 24px rgba(43,58,82,.09); }
+
+    .nav-logo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -.3px;
+    }
+    .nav-logo span { color: var(--blush); }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: .95rem;
+      font-weight: 500;
+      transition: color .25s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+
+    .nav-cta {
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: .5rem 1.3rem;
+      border-radius: 50px;
+      transition: background .25s !important;
+    }
+    .nav-cta:hover { background: var(--blue) !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 8% 4rem;
+      gap: 4rem;
+      background: linear-gradient(135deg, #F8F5F1 60%, #EBF2F8 100%);
+    }
+
+    .hero-text { animation: fadeUp .9s ease both; }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--sky);
+      color: var(--navy);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+      padding: .35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--blue);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      padding: .85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background .25s, transform .2s;
+      box-shadow: 0 8px 24px rgba(43,58,82,.22);
+    }
+    .btn-primary:hover { background: var(--blue); transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid var(--navy);
+      color: var(--navy);
+      padding: .85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all .25s;
+    }
+    .btn-outline:hover { background: var(--navy); color: var(--white); }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      animation: fadeIn 1.1s ease both;
+    }
+
+    .hero-card {
+      position: relative;
+      width: 340px;
+      height: 420px;
+    }
+
+    .hero-card-bg {
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
+      background: linear-gradient(160deg, var(--blue) 0%, var(--navy) 100%);
+      box-shadow: 0 32px 64px rgba(43,58,82,.28);
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .hero-initials {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.12);
+      letter-spacing: -4px;
+      user-select: none;
+    }
+
+    .floating-badge {
+      position: absolute;
+      bottom: -18px;
+      left: -18px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1rem 1.4rem;
+      box-shadow: 0 12px 32px rgba(43,58,82,.16);
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+    .floating-badge .icon { font-size: 1.8rem; }
+    .floating-badge .label { font-size: .8rem; color: var(--muted); }
+    .floating-badge .value { font-size: 1rem; font-weight: 700; color: var(--navy); }
+
+    .floating-badge2 {
+      position: absolute;
+      top: 28px;
+      right: -22px;
+      background: var(--blush);
+      color: var(--white);
+      border-radius: 50px;
+      padding: .6rem 1.2rem;
+      font-size: .85rem;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(212,165,165,.4);
+    }
+
+    /* ─── SECTION SHARED ─── */
+    section { padding: 6rem 8%; }
+
+    .section-tag {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: .8rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 540px;
+    }
+
+    /* ─── ABOUT ─── */
+    #about {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-shape {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 24px 4px 24px 4px;
+      background: linear-gradient(135deg, var(--sky) 0%, var(--blue) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      color: rgba(255,255,255,.25);
+      font-weight: 700;
+    }
+
+    .about-chip {
+      position: absolute;
+      top: 32px;
+      left: -24px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 14px;
+      padding: 1rem 1.2rem;
+      text-align: center;
+      box-shadow: 0 12px 32px rgba(43,58,82,.22);
+    }
+    .about-chip .big { font-size: 2rem; font-weight: 800; display: block; }
+    .about-chip .sm  { font-size: .75rem; opacity: .8; }
+
+    .about-text .section-sub { max-width: 100%; margin-bottom: 1.5rem; }
+
+    .traits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin-top: 1.8rem;
+    }
+    .trait {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .trait::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--blush);
+      flex-shrink: 0;
+    }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--cream); }
+
+    .services-header { text-align: center; margin-bottom: 3.5rem; }
+    .services-header .section-sub { margin: 0 auto; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.2rem;
+      border: 1px solid var(--border);
+      transition: transform .3s, box-shadow .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 80px; height: 80px;
+      border-radius: 0 20px 0 80px;
+      background: var(--cream);
+      transition: width .4s, height .4s;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(43,58,82,.12); }
+
+    .service-icon {
+      font-size: 2.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .6rem;
+    }
+    .service-card p {
+      font-size: .92rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ─── APPROACH ─── */
+    #approach {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+    }
+    #approach .section-tag { color: var(--sky); }
+    #approach .section-title { color: var(--white); }
+    #approach .section-sub { color: rgba(255,255,255,.65); margin: 0 auto 3.5rem; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      counter-reset: steps;
+    }
+
+    .step {
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      text-align: center;
+      counter-increment: steps;
+      position: relative;
+    }
+    .step-num {
+      font-size: 3rem;
+      font-weight: 800;
+      color: rgba(255,255,255,.08);
+      line-height: 1;
+      margin-bottom: .5rem;
+    }
+    .step h4 { font-size: 1rem; font-weight: 700; margin-bottom: .5rem; }
+    .step p  { font-size: .88rem; color: rgba(255,255,255,.55); line-height: 1.6; }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info .section-sub { margin-bottom: 2.5rem; }
+
+    .contact-items { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.4rem;
+      background: var(--cream);
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--text);
+      transition: background .25s;
+    }
+    .contact-item:hover { background: var(--border); }
+    .contact-item .ci-icon { font-size: 1.4rem; }
+    .contact-item .ci-label { font-size: .78rem; color: var(--muted); }
+    .contact-item .ci-value { font-size: .97rem; font-weight: 600; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: .4rem; }
+    .form-group label { font-size: .88rem; font-weight: 600; color: var(--navy); }
+
+    .form-group input,
+    .form-group textarea {
+      padding: .9rem 1.1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-family: 'Heebo', sans-serif;
+      font-size: .95rem;
+      color: var(--text);
+      background: var(--cream);
+      transition: border-color .25s, box-shadow .25s;
+      outline: none;
+      resize: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(61,90,128,.12);
+      background: var(--white);
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-submit {
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      padding: 1rem;
+      border-radius: 12px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .25s, transform .2s;
+    }
+    .form-submit:hover { background: var(--blue); transform: translateY(-2px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.5);
+      text-align: center;
+      padding: 2rem 8%;
+      font-size: .87rem;
+    }
+    footer strong { color: rgba(255,255,255,.85); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding: 7rem 6% 4rem; text-align: center; }
+      .hero p { margin: 0 auto 2rem; }
+      .hero-actions { justify-content: center; }
+      .hero-visual { display: none; }
+      #about { grid-template-columns: 1fr; }
+      .about-visual { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      #contact { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem 4%; }
+      .nav-links { display: none; }
+      section { padding: 4rem 5%; }
+      .steps { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">נטע שינפלד<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">אודות</a></li>
+    <li><a href="#services">תחומי טיפול</a></li>
+    <li><a href="#approach">שיטת הטיפול</a></li>
+    <li><a href="#contact" class="nav-cta">קביעת פגישה</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <span class="hero-badge">מטפלת CBT מוסמכת</span>
+    <h1>צעד ראשון<br />לחיים <em>שקטים יותר</em></h1>
+    <p>טיפול קוגניטיבי-התנהגותי (CBT) לחרדה, פוסט טראומה ומשברי חיים – בסביבה בטוחה, חמה ומקצועית.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">קביעת פגישת היכרות</a>
+      <a href="#services" class="btn-outline">תחומי הטיפול</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-card-bg">
+        <div class="hero-initials">נ&nbsp;ש</div>
+      </div>
+      <div class="floating-badge">
+        <span class="icon">🧠</span>
+        <div>
+          <div class="label">מתמחה ב־</div>
+          <div class="value">CBT & טראומה</div>
+        </div>
+      </div>
+      <div class="floating-badge2">✦ טיפול מבוסס מחקר</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual reveal">
+    <div class="about-shape">נ"ש</div>
+    <div class="about-chip">
+      <span class="big">CBT</span>
+      <span class="sm">מוסמכת</span>
+    </div>
+  </div>
+  <div class="about-text reveal">
+    <span class="section-tag">אודותי</span>
+    <h2 class="section-title">נטע שינפלד –<br />מטפלת CBT</h2>
+    <p class="section-sub">
+      אני מאמינה שכל אחד ואחת ראויים לחיות חיים שלמים ומשמעותיים – גם כשהחרדה, הטראומה או הכאב מרגישים גדולים מכדי לנהל אותם לבד.
+    </p>
+    <p class="section-sub" style="margin-top:.8rem;">
+      בטיפול אצלי תמצאו מרחב ללא שיפוטיות, כלים מעשיים מבוססי מחקר, ותהליך שמתקדם בקצב שלכם ולפי הצרכים שלכם.
+    </p>
+    <div class="traits">
+      <div class="trait">טיפול CBT מוסמך</div>
+      <div class="trait">הפרעות חרדה</div>
+      <div class="trait">פוסט טראומה (PTSD)</div>
+      <div class="trait">OCD וחרדה חברתית</div>
+      <div class="trait">פאניקה ואגורפוביה</div>
+      <div class="trait">גישה אמפתית ומכבדת</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <span class="section-tag">תחומי טיפול</span>
+    <h2 class="section-title">במה אני מתמחה?</h2>
+    <p class="section-sub">טיפול ממוקד ויעיל, המבוסס על שיטות מוכחות מחקרית לסיוע בקשת רחבה של קשיים נפשיים.</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card reveal">
+      <div class="service-icon">🌊</div>
+      <h3>הפרעות חרדה</h3>
+      <p>חרדה כללית, חרדת ביצוע, פוביות ספציפיות – טיפול המאפשר לחיות חיים מלאים גם לצד אי-הוודאות.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">🛡️</div>
+      <h3>פוסט טראומה (PTSD)</h3>
+      <p>עיבוד חוויות טראומטיות בצורה מובנית ובטוחה, עם כלים לויסות רגשי ושיקום תחושת הביטחון הפנימי.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">💨</div>
+      <h3>התקפי פאניקה</h3>
+      <p>הבנה מלאה של מנגנון הפאניקה וכלים פרקטיים להפחתת עוצמתם ותדירותם בחיי היומיום.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">🔄</div>
+      <h3>OCD – כפייתיות</h3>
+      <p>שיטת ERP המוכחת כיעילה ביותר לטיפול בהפרעה טורדנית כפייתית, עם ליווי צמוד ותומך.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">🤝</div>
+      <h3>חרדה חברתית</h3>
+      <p>פיתוח ביטחון עצמי, מיומנויות חברתיות ושינוי דפוסי חשיבה שמגבילים ומרחיקים מאנשים.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">🌿</div>
+      <h3>משבר ורגשות עוצמתיים</h3>
+      <p>ליווי בתקופות של לחץ, שינוי, אובדן או כאב – עם כלים לויסות רגשי ובניית חוסן נפשי.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <span class="section-tag">שיטת הטיפול</span>
+  <h2 class="section-title reveal">איך נעבוד יחד?</h2>
+  <p class="section-sub reveal">תהליך הטיפול מובנה וברור, עם יעדים מוגדרים ותחושת התקדמות לאורך כל הדרך.</p>
+
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <h4>פגישת היכרות</h4>
+      <p>נכיר, נבין את הצרכים שלך ונבדוק יחד אם CBT מתאים לך.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <h4>הגדרת מטרות</h4>
+      <p>נגדיר יעדים ברורים ומדידים – מה תרצה שישתנה בחיים שלך?</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <h4>עבודה טיפולית</h4>
+      <p>נעבוד יחד על דפוסי חשיבה, רגש והתנהגות עם כלים מוכחים.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <h4>עצמאות ושמירה</h4>
+      <p>תלמד/י להשתמש בכלים באופן עצמאי ולשמור על השיפור לאורך זמן.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info reveal">
+    <span class="section-tag">צרו קשר</span>
+    <h2 class="section-title">בואו נדבר</h2>
+    <p class="section-sub">הצעד הראשון הוא לפעמים הקשה ביותר – אבל אתם לא צריכים לעשות אותו לבד. אשמח לשמוע מכם.</p>
+
+    <div class="contact-items">
+      <a href="mailto:netta.shoenfeld@gmail.com" class="contact-item">
+        <span class="ci-icon">✉️</span>
+        <div>
+          <div class="ci-label">אימייל</div>
+          <div class="ci-value">netta.shoenfeld@gmail.com</div>
+        </div>
+      </a>
+      <div class="contact-item">
+        <span class="ci-icon">📍</span>
+        <div>
+          <div class="ci-label">אזור הטיפול</div>
+          <div class="ci-value">ישראל · גם בזום</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="ci-icon">🕐</span>
+        <div>
+          <div class="ci-label">שעות פעילות</div>
+          <div class="ci-value">ראשון–חמישי · 09:00–20:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">שם מלא</label>
+        <input type="text" id="name" placeholder="ישראל ישראלי" required />
+      </div>
+      <div class="form-group">
+        <label for="phone">טלפון</label>
+        <input type="tel" id="phone" placeholder="05X-XXXXXXX" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">אימייל</label>
+      <input type="email" id="email" placeholder="your@email.com" required />
+    </div>
+    <div class="form-group">
+      <label for="subject">נושא</label>
+      <input type="text" id="subject" placeholder="פגישת היכרות / שאלה כללית" />
+    </div>
+    <div class="form-group">
+      <label for="message">הודעה</label>
+      <textarea id="message" rows="4" placeholder="ספרו לי במה אני יכולה לעזור..."></textarea>
+    </div>
+    <button type="submit" class="form-submit">שליחת הפנייה ←</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <strong>נטע שינפלד</strong> · מטפלת CBT מוסמכת · כל הזכויות שמורות</p>
+  <p style="margin-top:.4rem; font-size:.8rem;">האתר מיועד למידע כללי בלבד ואינו מהווה ייעוץ פסיכולוגי או רפואי.</p>
+</footer>
+
+<script>
+  // Navbar shadow on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit (mailto fallback)
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name    = document.getElementById('name').value;
+    const email   = document.getElementById('email').value;
+    const phone   = document.getElementById('phone').value;
+    const subject = document.getElementById('subject').value || 'פנייה מהאתר';
+    const message = document.getElementById('message').value;
+
+    const body = `שם: ${name}%0Aטלפון: ${phone}%0Aאימייל: ${email}%0A%0A${message}`;
+    window.location.href = `mailto:netta.shoenfeld@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+  }
+</script>
+</body>
+</html>
