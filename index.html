@@ -1195,6 +1195,8 @@
       .services-grid { grid-template-columns: 1fr; }
       .testimonials-track .testimonial-card { min-width: calc(100% - 0rem); }
       .wave-divider svg { height: 35px; }
+      body::after { display: none; }
+      .hero::before, .hero::after { animation: none; }
       .steps { grid-template-columns: 1fr 1fr; }
       #contact { grid-template-columns: 1fr; }
       .traits { grid-template-columns: 1fr; }
@@ -1819,14 +1821,16 @@
 
   // Forms are now handled by FormSubmit.co (no JS needed)
 
-  // Parallax on hero background shapes
+  // Parallax on hero background shapes (desktop only)
   const hero = document.querySelector('.hero');
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if (y < window.innerHeight) {
-      hero.style.setProperty('--parallax', y * 0.3 + 'px');
-    }
-  }, { passive: true });
+  if (window.innerWidth > 900) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) {
+        hero.style.setProperty('--parallax', y * 0.3 + 'px');
+      }
+    }, { passive: true });
+  }
   // Apply parallax via CSS custom property
   const style = document.createElement('style');
   style.textContent = `.hero::before { transform: translateY(var(--parallax, 0)); } .hero::after { transform: translateY(calc(var(--parallax, 0) * -0.5)); }`;
