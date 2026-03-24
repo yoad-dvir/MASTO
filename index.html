@@ -57,12 +57,43 @@
 
     html { scroll-behavior: smooth; }
 
+    /* ─── SCROLL PROGRESS BAR ─── */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blush), var(--sky), var(--blush));
+      background-size: 200% 100%;
+      animation: shimmer 3s ease-in-out infinite;
+      transform-origin: left;
+      transform: scaleX(0);
+      z-index: 9999;
+      pointer-events: none;
+    }
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
     body {
       font-family: 'Heebo', sans-serif;
       background: var(--cream);
       color: var(--text);
       line-height: 1.7;
       overflow-x: hidden;
+    }
+
+    /* ─── PREMIUM GRAIN TEXTURE ─── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: .035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
     }
 
     /* ─── NAV ─── */
@@ -146,20 +177,22 @@
 
     /* Mobile menu overlay */
     .mobile-menu {
-      display: none;
       position: fixed;
       inset: 0;
       background: rgba(248,245,241,0.98);
       backdrop-filter: blur(20px);
       z-index: 99;
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 2rem;
       opacity: 0;
-      transition: opacity .4s;
+      visibility: hidden;
+      transform: scale(1.05);
+      transition: opacity .4s cubic-bezier(.4,0,.2,1), visibility .4s, transform .4s cubic-bezier(.4,0,.2,1);
     }
-    .mobile-menu.open { display: flex; opacity: 1; }
+    .mobile-menu.open { opacity: 1; visibility: visible; transform: scale(1); }
     .mobile-menu a {
       text-decoration: none;
       font-size: 1.4rem;
@@ -229,10 +262,16 @@
     }
     .hero h1 em {
       font-style: normal;
-      background: linear-gradient(135deg, var(--blue), var(--sky));
+      background: linear-gradient(135deg, var(--blue), var(--sky), var(--blush), var(--blue));
+      background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: gradientShift 6s ease-in-out infinite;
+    }
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     .hero p {
@@ -292,6 +331,36 @@
       animation: fadeIn 1.1s ease both;
       position: relative;
       z-index: 1;
+    }
+
+    /* ─── BOKEH DOTS ─── */
+    .hero-visual::before,
+    .hero-visual::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(1px);
+    }
+    .hero-visual::before {
+      width: 120px; height: 120px;
+      top: -30px; right: -40px;
+      background: radial-gradient(circle, rgba(212,165,165,.2) 0%, transparent 70%);
+      animation: bokeh1 5s ease-in-out infinite;
+    }
+    .hero-visual::after {
+      width: 80px; height: 80px;
+      bottom: 40px; left: -30px;
+      background: radial-gradient(circle, rgba(152,193,217,.25) 0%, transparent 70%);
+      animation: bokeh2 7s ease-in-out infinite;
+    }
+    @keyframes bokeh1 {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: .6; }
+      50% { transform: translate(-15px, 20px) scale(1.15); opacity: 1; }
+    }
+    @keyframes bokeh2 {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: .5; }
+      50% { transform: translate(10px, -15px) scale(1.2); opacity: .9; }
     }
 
     .hero-card {
@@ -500,8 +569,10 @@
     }
     .service-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 24px 48px rgba(43,58,82,.12);
-      border-color: rgba(152,193,217,0.3);
+      box-shadow: 0 24px 48px rgba(43,58,82,.12), 0 0 0 1px rgba(152,193,217,0.2);
+      border-color: transparent;
+      background: linear-gradient(var(--white), var(--white)) padding-box,
+                  linear-gradient(135deg, var(--sky), var(--blush), var(--sky)) border-box;
     }
     .service-card:hover::before { width: 150px; height: 150px; }
 
@@ -997,6 +1068,56 @@
     .reveal-delay-4 { transition-delay: .4s; }
     .reveal-delay-5 { transition-delay: .5s; }
 
+    /* ─── BUTTON ACTIVE STATES (touch) ─── */
+    .btn-primary:active { transform: translateY(0) scale(.97); }
+    .btn-outline:active { transform: translateY(0) scale(.97); }
+    .nav-cta:active { transform: translateY(0) scale(.97) !important; }
+    .booking-submit:active { transform: translateY(0) scale(.97); }
+    .form-submit:active { transform: translateY(0) scale(.97); }
+
+    /* ─── ENHANCED TESTIMONIAL HOVER ─── */
+    .testimonial-card {
+      transition: all .5s cubic-bezier(.4,0,.2,1);
+    }
+    .testimonial-card:hover {
+      transform: translateY(-6px) rotate(-.5deg);
+      box-shadow: 0 20px 50px rgba(43,58,82,.12);
+    }
+
+    /* ─── STEP COUNTER GLOW ─── */
+    .step:hover .step-num {
+      background: linear-gradient(135deg, rgba(152,193,217,.5), rgba(212,165,165,.4));
+      -webkit-background-clip: text;
+      background-clip: text;
+      transition: all .4s;
+    }
+
+    /* ─── CONTACT ITEM SHINE ─── */
+    .contact-item {
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(152,193,217,.06), transparent);
+      transition: left .6s;
+    }
+    .contact-item:hover::before { left: 100%; }
+
+    /* ─── REDUCED MOTION ─── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+      .scroll-progress { display: none; }
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .hamburger { display: flex; }
@@ -1032,6 +1153,9 @@
   </style>
 </head>
 <body>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -1073,7 +1197,7 @@
   <div class="hero-visual">
     <div class="hero-card">
       <div class="hero-card-bg">
-        <img src="netta.jpeg" alt="נטע שינפלד" />
+        <img src="netta.jpeg" alt="נטע שינפלד" loading="lazy" />
       </div>
       <div class="floating-badge">
         <span class="icon">🧠</span>
@@ -1560,10 +1684,16 @@
 </footer>
 
 <script>
-  // Navbar scroll effect
+  // Navbar scroll effect + progress bar
   const navbar = document.getElementById('navbar');
+  const scrollProgress = document.getElementById('scrollProgress');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 20);
+    // Scroll progress
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+    scrollProgress.style.transform = `scaleX(${progress})`;
   });
 
   // Hamburger menu
